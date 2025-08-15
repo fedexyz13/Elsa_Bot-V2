@@ -65,7 +65,6 @@ global.fin = ' • •';
 // ─── ❄️ Branding y multimedia ───
 global.banner = 'https://files.cloudkuimages.guru/images/qM6BRh2g.jpg';
 global.avatar = 'https://files.cloudkuimages.guru/images/PbmZRkdU.jpg';
-global.imagen0 = fs.readFileSync('./Brayan-Creador.png');
 global.catalogo = fs.readFileSync('./Private.png');
 
 let catalogo2;
