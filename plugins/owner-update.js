@@ -6,8 +6,8 @@ let handler = async (m, { conn, args }) => {
 
         const output = execSync('git pull' + (args.length ? ' ' + args.join(' ') : '')).toString();
         let response = output.includes('Already up to date') 
-            ? '⚽️ El bot ya está actualizado.' 
-            : `⚽️ Se han aplicado actualizaciones:\n\n${output}`;
+            ? '🍁 El bot ya está actualizado.' 
+            : `🍁 Se han aplicado actualizaciones:\n\n${output}`;
 
         await conn.reply(m.chat, response, m, rcanal);
 
@@ -37,9 +37,7 @@ let handler = async (m, { conn, args }) => {
     } 
 };
 
-handler.customPrefix = /^(fix|update|up)$/i;
-handler.command = new RegExp;
+handler.command = ['up', 'update', 'fix'];
+handler.tags = ['owner'];
 handler.owner = true;
-handler.register = true;
-
 export default handler;
