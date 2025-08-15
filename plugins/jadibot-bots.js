@@ -16,7 +16,7 @@ let handler = async (m, { conn, command, usedPrefix}) => {
   const isListBots = /^(bots|listjadibots|subbots|sukibots)$/i.test(command);
 
   const reportError = async (e) => {
-    await m.reply('❌ Ups... algo falló en el sistema de 𝖲ᴜᴋ𝗂Bot_MD 🌸');
+    await m.reply('❌ Ups... algo falló en el sistema de ElsaBot_MD 🌸');
     console.error(e);
 };
 
@@ -83,7 +83,7 @@ let handler = async (m, { conn, command, usedPrefix}) => {
         return `📖 「 ${i + 1} 」\n👤 Nombre: ${bot.user.name || 'SubBot'}\n⏱️ Activo: ${bot.uptime? formatUptime(Date.now() - bot.uptime): 'Desconocido'}\n📎 Enlace: https://wa.me/${jid}?text=${usedPrefix}code`;
 }).join('\n\n🍓──────────────────🍓\n\n');
 
-      const mensajeFinal = `🌸 *ElssBot_MD | SubBots en línea*\n\n🧋 ¿Quieres conectarte como ayudante pastelcore?\nPulsa en alguno de los enlaces y únete a la clase 🍁\n\n📊 SubBots activos: *${botsActivos.length || '0'}*\n\n${listado || '🚫 Ningún SubBot está en línea en este momento.'}`;
+      const mensajeFinal = `🌸 *ElssBot_MD | SubBots en línea*\n\n🧋 ¿Quieres conectarte como ayudante?\nPulsa en alguno de los enlaces y únete a la clase 🍁\n\n📊 SubBots activos: *${botsActivos.length || '0'}*\n\n${listado || '🚫 Ningún SubBot está en línea en este momento.'}`;
 
       await conn.sendMessage(m.chat, {
         text: mensajeFinal,
