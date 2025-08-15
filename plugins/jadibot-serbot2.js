@@ -24,7 +24,7 @@ let rtx = `❄️ *ElsaBot-MD* está enviando tu código de vinculación...
 1️⃣ Escribe el comando de vinculación
 2️⃣ Espera el código mágico
 3️⃣ Únete al canal oficial para recibir actualizaciones
-🔗 https://whatsapp.com/channel/0029VajUPbECxoB0cYovo60W
+🔗 https://whatsapp.com/channel/0029VbApe6jG8l5Nv43dsC2N
 
 ✨ ¡Listo! Ya formas parte del reino de ElsaBot-MD.`;
 let rtx2 = `🌨️ *ElsaBot-MD* te guía paso a paso:
@@ -32,7 +32,7 @@ let rtx2 = `🌨️ *ElsaBot-MD* te guía paso a paso:
 1️⃣ Se está enviando tu código de vinculación
 2️⃣ A veces el bot cambia de número, ¡no te pierdas!
 3️⃣ Sigue el canal oficial para estar siempre informado
-🔗 https://whatsapp.com/channel/0029Vb6BDQc0lwgsDN1GJ31i
+🔗 https://whatsapp.com/channel/0029VbApe6jG8l5Nv43dsC2N
 4️⃣ Guarda el código y úsalo cuando lo necesites
 
 🧊 ElsaBot_MD siempre contigo, con magia y elegancia.`;
