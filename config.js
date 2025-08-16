@@ -63,8 +63,8 @@ global.comienzo = '• • ◕◕════';
 global.fin = ' • •';
 
 // ─── ❄️ Branding y multimedia ───
-global.banner = 'https://files.cloudkuimages.guru/images/qM6BRh2g.jpg';
-global.avatar = 'https://files.cloudkuimages.guru/images/PbmZRkdU.jpg';
+global.banner = 'https://files.cloudkuimages.guru/images/HCb3D6xy.jpg';
+global.avatar = 'https://files.cloudkuimages.guru/images/HCb3D6xy.jpg';
 
 let catalogo2;
 try {
