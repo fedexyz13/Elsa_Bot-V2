@@ -42,8 +42,8 @@ const defaultMenu = {
 
   header: '\n╭─ %category ─╮\n',
   body: '│ ❄️ %cmd %iscorazones %isPremium',
-  footer: '╰──────────────╯\n',
-  after: ''
+  footer: '\n',
+  after: '╰──────────────╯'
 };
 
 let handler = async (m, { conn, usedPrefix: _p}) => {
