@@ -103,7 +103,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 
     const text = _text.replace(/%(\w+)/g, (_, key) => replace[key] || '');
 
-    const imageURL = 'https://files.catbox.moe/rkvuzb.jpg';
+    const imageURL = 'https://files.cloudkuimages.guru/images/Nd5Zfsvu.jpg';
     const imgBuffer = await fetch(imageURL).then(res => res.buffer());
 
     const buttons = [
