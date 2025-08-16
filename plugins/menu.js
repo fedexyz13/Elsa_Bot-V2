@@ -18,27 +18,26 @@ const tags = {
   serbot: toSerifBold('🪄 SubBots & Clones'),
   tools: toSerifBold('🔧 Hechizos Útiles'),
   kawaii: toSerifBold('🎀 Anime & Kawaii'),
-  descargas: toSerifBold('📥 Descargas Mágicas')
+  descargas: toSerifBold('📥 Descargas Mágicas'),
+  juegos: toSerifBold('🎮 Juegos Encantados'),
+  premium: toSerifBold('💎 Comandos Premium')
 };
 
 const defaultMenu = {
   before: `
-❀───────𓆩♡𓆪───────❀
-「🍁」 ¡Hola, *%name*~! ${ucapan()} ˎˊ˗
-
-🍁『 INFO DE USUARIO 』🍁
-👤 Nombre: *%name*
-🎀 Nivel: *%level* | ✨ Exp: *%exp/%maxexp*
-🔓 Modo: *%mode*
-📈 Registro global: *%totalreg*
-🕐 Tiempo activo: *%muptime*
-
-╰─╼🍁 ElsaBot_MD 🍁╾─╯
+╭─❄️ Bienvenida mágica ❄️─╮
+│ ¡Hola, *%name*~! ${ucapan()}
+│
+│ 👤 Nivel: *%level* | ✨ Exp: *%exp/%maxexp*
+│ 🔓 Modo: *%mode*
+│ 📈 Usuarios registrados: *%totalreg*
+│ 🕐 Tiempo activo: *%muptime*
+╰───────────────────────╯
 %readmore`.trim(),
 
-  header: '\n` %category 乂`\n',
-  body: '❄️ %cmd %iscorazones %isPremium',
-  footer: '\n',
+  header: '\n╭─ %category ─╮\n',
+  body: '│ ❄️ %cmd %iscorazones %isPremium',
+  footer: '╰──────────────╯\n',
   after: ''
 };
 
@@ -103,9 +102,9 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
     const imgBuffer = await fetch(imageURL).then(res => res.buffer());
 
     const buttons = [
-      { buttonId: `${_p}ping`, buttonText: { displayText: '📶 Ping'}, type: 1},
-      { buttonId: `${_p}grupos`, buttonText: { displayText: '👥 Grupos'}, type: 1},
-      { buttonId: `${_p}reg soyReina 50`, buttonText: { displayText: '👑 Auto Verificar'}, type: 1}
+      { buttonId: `${_p}ping`, buttonText: { displayText: '📶 Estado'}, type: 1},
+      { buttonId: `${_p}grupos`, buttonText: { displayText: '👥 Comunidad'}, type: 1},
+      { buttonId: `${_p}reg soyReina 50`, buttonText: { displayText: '👑 Verificarme'}, type: 1}
     ];
 
     const menuMessage = await conn.sendMessage(m.chat, {
