@@ -11,7 +11,7 @@ export async function before(m, { conn}) {
       id: '120363402097425674@newsletter',
       name: 'ElsaBot-MD'
 };
-    const metanombre = global.metanombre || 'ElsaBot-MD';
+    const metanombre = global.metanombre || '﹫𝖿𝖾𝖽𝖾𝗑𝗒𝗓';
 
     if (!Array.prototype.getRandom) {
       Array.prototype.getRandom = function () {
