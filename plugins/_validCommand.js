@@ -8,7 +8,7 @@ export async function before(m, { conn}) {
     const Buffer = global.Buffer || ((...args) => new Uint8Array(...args));
 
     const channelRD = global.channelRD || {
-      id: '120363417186717632@newsletter',
+      id: '120363402097425674@newsletter',
       name: 'ElsaBot-MD'
 };
     const metanombre = global.metanombre || 'ElsaBot-MD';
@@ -27,7 +27,7 @@ export async function before(m, { conn}) {
       message: {
         contactMessage: {
           displayName: metanombre,
-          vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${metanombre},;;;\nFN:${metanombre}\nitem1.TEL;waid=00000000000:00000000000\nitem1.X-ABLabel:Bot Oficial\nitem2.TEL;waid=${m.sender?.split('@')[0] || '0'}:${m.sender?.split('@')[0] || '0'}\nitem2.X-ABLabel:Usuario\nEND:VCARD`,
+          vcard: `BEGIN:VCARD\nVERSION:3.0\nN:XL;${metanombre},;;;\nFN:${metanombre}\nitem1.TEL;waid=5491156178758:5491156178758\nitem1.X-ABLabel:Bot Oficial\nitem2.TEL;waid=${m.sender?.split('@')[0] || '0'}:${m.sender?.split('@')[0] || '0'}\nitem2.X-ABLabel:Usuario\nEND:VCARD`,
           jpegThumbnail: null,
           thumbnail: null,
           sendEphemeral: true
@@ -45,7 +45,7 @@ export async function before(m, { conn}) {
       message: {
         contactMessage: {
           displayName: metanombre,
-          vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:${metanombre}\nORG:${metanombre}\nTEL;type=CELL;type=VOICE;waid=00000000000:+000 0000 0000\nEND:VCARD`,
+          vcard: `BEGIN:VCARD\nVERSION:3.0\nFN:${metanombre}\nORG:${metanombre}\nTEL;type=CELL;type=VOICE;waid=5491156178758:+54 9 11 5617 8758\nEND:VCARD`,
           jpegThumbnail: Buffer.from([]),
           contextInfo: {
             forwardingScore: 999,
@@ -70,7 +70,7 @@ export async function before(m, { conn}) {
           mediaUrl: null,
           description: null,
           previewType: "PHOTO",
-          thumbnailUrl: 'https://files.catbox.moe/woeor8.jpg',
+          thumbnailUrl: 'https://files.cloudkuimages.guru/images/HCb3D6xy.jpg',
           sourceUrl: 'https://www.instagram.com/elsabot_md/',
           mediaType: 1,
           renderLargerThumbnail: true
@@ -99,7 +99,7 @@ export async function before(m, { conn}) {
             externalAdReply: {
               title: metanombre,
               body: 'ElsaBot-MD',
-              thumbnailUrl: 'https://files.catbox.moe/woeor8.jpg',
+              thumbnailUrl: 'https://files.cloudkuimages.guru/images/HCb3D6xy.jpg',
               sourceUrl: 'https://www.instagram.com/elsabot_md/',
               mediaType: 1,
               renderLargerThumbnail: true
@@ -121,7 +121,7 @@ export async function before(m, { conn}) {
           externalAdReply: {
             title: metanombre,
             body: 'ElsaBot-MD',
-            thumbnailUrl: 'https://files.catbox.moe/woeor8.jpg',
+            thumbnailUrl: 'https://files.cloudkuimages.guru/images/HCb3D6xy.jpg',
             sourceUrl: 'https://www.instagram.com/elsabot_md/',
             mediaType: 1,
             renderLargerThumbnail: true
