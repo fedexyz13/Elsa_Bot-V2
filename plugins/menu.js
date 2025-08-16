@@ -1,4 +1,3 @@
-
 import { xpRange} from '../lib/levelling.js';
 import fetch from 'node-fetch';
 import moment from 'moment-timezone';
@@ -38,7 +37,7 @@ const defaultMenu = {
 
   header: '\n╭─ %category ─╮\n',
   body: '│ ❄️ %cmd %iscorazones %isPremium',
-  footer: '╰──────────────╯\n',
+  footer: '\n',
   after: ''
 };
 
