@@ -3,16 +3,12 @@ import fetch from 'node-fetch';
 import moment from 'moment-timezone';
 
 const toSerifBold = (text) => {
-  const map = {
-    a: '𝗮', b: '𝗯', c: '𝗰', d: '𝗱', e: '𝗲', f: '𝗳', g: '𝗴',
-    h: '𝗵', i: '𝗶', j: '𝗷', k: '𝗸', l: '𝗹', m: '𝗺', n: '𝗻',
-    o: '𝗼', p: '𝗽', q: '𝗾', r: '𝗿', s: '𝘀', t: '𝘁', u: '𝘂',
-    v: '𝘃', w: '𝘄', x: '𝘅', y: '𝘆', z: '𝘇',
-    A: '𝗔', B: '𝗕', C: '𝗖', D: '𝗗', E: '𝗘', F: '𝗙', G: '𝗚',
-    H: '𝗛', I: '𝗜', J: '𝗝', K: '𝗞', L: '𝗟', M: '𝗠', N: '𝗡',
-    O: '𝗢', P: '𝗣', Q: '𝗤', R: '𝗥', S: '𝗦', T: '𝗧', U: '𝗨',
-    V: '𝗩', W: '𝗪', X: '𝗫', Y: '𝗬', Z: '𝗭'
-};
+  const map = Object.fromEntries(
+    'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('').map((c, i) => [
+      c,
+      '𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭'[i]
+    ])
+);
   return text.split('').map(c => map[c] || c).join('');
 };
 
@@ -41,7 +37,7 @@ const defaultMenu = {
 %readmore`.trim(),
 
   header: '\n` %category 乂`\n',
-  body: '.🍂.𖦹˙ %cmd %iscorazones %isPremium',
+  body: '❄️ %cmd %iscorazones %isPremium',
   footer: '\n',
   after: ''
 };
@@ -76,7 +72,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 
     const { before, header, body, footer, after} = defaultMenu;
 
-    let _text = [
+    let menuText = [
       before,
 ...Object.keys(tags).map(tag => {
         const cmds = help
@@ -101,7 +97,7 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
       readmore: String.fromCharCode(8206).repeat(4001)
 };
 
-    const text = _text.replace(/%(\w+)/g, (_, key) => replace[key] || '');
+    const finalText = menuText.replace(/%(\w+)/g, (_, key) => replace[key] || '');
 
     const imageURL = 'https://files.cloudkuimages.guru/images/Nd5Zfsvu.jpg';
     const imgBuffer = await fetch(imageURL).then(res => res.buffer());
@@ -114,12 +110,12 @@ let handler = async (m, { conn, usedPrefix: _p}) => {
 
     const menuMessage = await conn.sendMessage(m.chat, {
       image: imgBuffer,
-      caption: text,
+      caption: finalText,
       footer: '╰─❄️ ElsaBot_MD 𝑉𝟤 ❄️─╯',
       buttons,
       headerType: 4,
       contextInfo: {
-        mentionedJid: [m.sender],
+      mentionedJid: [m.sender],
         isForwarded: true,
         forwardingScore: 888
 }
