@@ -4,14 +4,16 @@ export async function all(m, chatUpdate) {
   try {
     if (m.isBaileys ||!m.message) return;
 
-    // Detectar tipo de respuesta interactiva
     const msg = m.message;
+
+    // Extraer ID de respuesta interactiva
     const id =
       msg.buttonsResponseMessage?.selectedButtonId ||
       msg.templateButtonReplyMessage?.selectedId ||
       msg.listResponseMessage?.singleSelectReply?.selectedRowId ||
       JSON.parse(msg.interactiveResponseMessage?.nativeFlowResponseMessage?.paramsJson || '{}')?.id;
 
+    // Extraer texto visible de la respuesta
     const text =
       msg.buttonsResponseMessage?.selectedDisplayText ||
       msg.templateButtonReplyMessage?.selectedDisplayText ||
@@ -28,22 +30,23 @@ export async function all(m, chatUpdate) {
       if (!plugin || plugin.disabled || typeof plugin!== 'function' ||!plugin.command) continue;
       if (!opts['restrict'] && plugin.tags?.includes('admin')) continue;
 
-      const str2Regex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
+      const escapeRegex = str => str.replace(/[|\\{}()[\]^$+*?.]/g, '\\$&');
       const _prefix = plugin.customPrefix || this.prefix || global.prefix;
 
-      const match = (_prefix instanceof RegExp
+      const match = (
+        _prefix instanceof RegExp
 ? [[_prefix.exec(id), _prefix]]
 : Array.isArray(_prefix)
 ? _prefix.map(p => {
-            const re = p instanceof RegExp? p: new RegExp(str2Regex(p));
-            return [re.exec(id), re];
+              const re = p instanceof RegExp? p: new RegExp(escapeRegex(p));
+              return [re.exec(id), re];
 })
 : typeof _prefix === 'string'
-? [[new RegExp(str2Regex(_prefix)).exec(id), new RegExp(str2Regex(_prefix))]]
+? [[new RegExp(escapeRegex(_prefix)).exec(id), new RegExp(escapeRegex(_prefix))]]
 : [[[], new RegExp]]
-).find(p => p[1]);
+).find(p => p[0]);
 
-      if ((usedPrefix = (match?.[0] || '')[0])) {
+      if ((usedPrefix = match?.[0]?.[0])) {
         const noPrefix = id.replace(usedPrefix, '');
         let [command] = noPrefix.trim().split(/\s+/);
         command = (command || '').toLowerCase();
@@ -63,12 +66,13 @@ export async function all(m, chatUpdate) {
 }
 }
 
+    // Generar mensaje simulado para reenviar
     const generated = await generateWAMessage(
       m.chat,
       { text: isIdMessage? id: text, mentions: m.mentionedJid},
       {
         userJid: this.user.id,
-        quoted: m.quoted?.fakeObj,
+        quoted: m.quoted?.fakeObj
 }
 );
 
@@ -80,11 +84,11 @@ export async function all(m, chatUpdate) {
     const msgUpsert = {
 ...chatUpdate,
       messages: [proto.WebMessageInfo.fromObject(generated)].map(v => ((v.conn = this), v)),
-      type: 'append',
+      type: 'append'
 };
 
     this.ev.emit('messages.upsert', msgUpsert);
 } catch (error) {
-    console.error('❌ Error en all.js:', error);
+    console.error('❌ Error en prueba-botones.js:', error);
 }
-  }
+}
